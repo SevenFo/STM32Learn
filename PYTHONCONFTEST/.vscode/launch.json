@@ -1,0 +1,1 @@
+{"version": "0.2.0", "configurations": [{"name": "Debug (J-Link)", "type": "cortex-debug", "request": "launch", "servertype": "openocd", "cwd": "${workspaceFolder}", "executable": "build/PYTHONCONFTEST.elf", "device": "STM32F429IG", "preLaunchTask": "Build", "configFiles": ["stlink.cfg", "stm32f4x.cfg"], "svdFile": "STM32F429x.svd"}]}

@@ -1,0 +1,84 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Build",
+            "type": "shell",
+            "command": "python",
+            "args": [
+                "${workspaceFolder}/MDKBuild.py",
+                "-b",
+                "${workspaceFolder}/USER/1_GPIO.uvprojx"
+            ],
+            "group": "build",
+            "problemMatcher":{
+                "owner": "cpp",
+                "fileLocation":["relative","${workspaceFolder}/USER/"],
+                "pattern":
+                {
+                    //"regexp": "^(.*)(\\((\\d+)\\))?:\\s+(warning|error|Error):\\s+(.*)$",
+                    "regexp":"^(.*)\\((\\d+)\\):\\s+(warning|error|Error):\\s+(.*)$|^(.*: Error: .*\\(referred from .*\\))$",
+                    "file": 1,
+                    "location": 2,
+                    "severity":3,
+                    "message": 4
+                }
+    
+            }
+        },
+        {
+            "label": "clean",
+            "type": "shell",
+            "command":"python",
+            "args": [
+                "${workspaceFolder}/MDKBuild.py",
+                "-c",
+                "${workspaceFolder}/USER/1_GPIO.uvprojx"
+            ],
+            "group": "build"
+        },
+        {
+            "label": "download",
+            "type": "shell",
+            "command": "python",
+            "args": [
+                "${workspaceFolder}/MDKBuild.py",
+                "-f",
+                "${workspaceFolder}/USER/1_GPIO.uvprojx"
+            ],
+            "group": "build",
+            "problemMatcher":{
+                "owner": "cpp",
+                "fileLocation":["relative","${workspaceFolder}/USER/"],
+                "pattern":{
+                    "regexp": "^(.*)\\((\\d+)\\):\\s+(warning|error):\\s+(.*)$",
+                    "file": 1,
+                    "location": 2,
+                    "severity":3,
+                    "message": 4
+                }
+            }
+        },
+        {
+            "label": "Download",
+            "group": "build",
+            "type": "shell",
+            "command":"echo Downloaded",
+            "dependsOrder": "sequence",
+            "dependsOn":["Build","download"],
+            "problemMatcher":{
+                "owner": "cpp",
+                "fileLocation":["relative","${workspaceFolder}/USER/"],
+                "pattern":{
+                    "regexp": "^(.*)\\((\\d+)\\):\\s+(warning|error):\\s+(.*)$",
+                    "file": 1,
+                    "location": 2,
+                    "severity":3,
+                    "message": 4
+                }
+            }
+        }
+    ]
+}

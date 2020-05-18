@@ -1,0 +1,30 @@
+{
+    "configurations": [
+        {
+            "name": "Win32",
+            "includePath": [
+                "C:\\Keil_v5\\ARM\\ARMCC\\include\\**",
+                "${workspaceFolder}/**",
+                "${workspaceFolder}/CORE/**",
+                "${workspaceFolder}/USER/**",
+                "${workspaceFolder}/SYSTEM/**",
+                "${workspaceFolder}/HALLIB/STM32F4xx_HAL_Driver/Inc/**",
+                "${workspaceFolder}/HALLIB/STM32F4xx_HAL_Driver/Src/**"
+            ],
+            "defines": [
+                "_DEBUG",
+                "UNICODE",
+                "_UNICODE",
+                "USE_HAL_DRIVER",
+                "STM32F429xx",
+                "__CC_ARM"
+            ],
+            "windowsSdkVersion": "10.0.18362.0",
+            "compilerPath": "",
+            "cStandard": "c11",
+            "cppStandard": "c++17",
+            "intelliSenseMode": "msvc-x64"
+        }
+    ],
+    "version": 4
+}
